@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700');
 
@@ -608,7 +608,7 @@ a.automobile-sell-btn {
 .automobile-footer-widget {
     float: left;
     width: 100%;
-    background: url(extra-/Content/Content/extra-imagesfooter-bg.jpg);
+    background: url(Content/extra-imagesfooter-bg.jpg);
     position: relative;
     padding: 93px 0px 0px 0px;
 }
@@ -787,7 +787,7 @@ a.automobile-sell-btn {
     width: 100%;
 }
 .automobile-subheader-image {
-    background: url(extra-/Content/Content/extra-imagessub-header.jpg);
+    background: url(Content/extra-imagessub-header.jpg);
     padding: 88px 0 91px;
     position: relative;
     text-align: center;
@@ -3682,7 +3682,7 @@ blockquote:after {
 }
 /*automobile-light-background*/
 .automobile-background-layers {
-    background: url("extra-/Content/Content/extra-imagesbackground-layers.jpg");
+    background: url("Content/extra-imagesbackground-layers.jpg");
     background-position: top center;
     background-repeat: no-repeat;
     padding: 50px 0px 0px;
@@ -4638,7 +4638,7 @@ blockquote:after {
 .automobile-call-to-action3 {
     float: left;
     width: 100%;
-    background-image: url("extra-/Content/Content/extra-imagescall-to-action-img2.jpg");
+    background-image: url("Content/extra-imagescall-to-action-img2.jpg");
     padding: 58px 0px 45px;
     position: relative;
     margin: 0px 0px 50px;
@@ -4686,7 +4686,7 @@ blockquote:after {
 .automobile-call-to-action4 {
     float: left;
     width: 100%;
-    background-image: url("extra-/Content/Content/extra-imagescall-to-action-img3.jpg");
+    background-image: url("Content/extra-imagescall-to-action-img3.jpg");
     padding: 50px 0px 38px;
     position: relative;
     text-align: center;
@@ -6359,7 +6359,7 @@ blockquote:after {
 }
 .automobile-404-full {
     padding-top: 154px;
-    background-image: url("extra-/Content/Content/extra-images404-img.jpg");
+    background-image: url("Content/extra-images404-img.jpg");
     background-repeat: no-repeat;
     background-position: left top ;
     padding-bottom: 90px;
@@ -6577,7 +6577,7 @@ blockquote:after {
     font-size: 21px;
 }
 .automobile-comingsoonfull {
-    background-image: url("extra-/Content/Content/extra-imagescomming-soon-background.jpg");
+    background-image: url("Content/extra-imagescomming-soon-background.jpg");
     padding-top: 10px;
     padding-bottom: 10px;
     position: relative;
