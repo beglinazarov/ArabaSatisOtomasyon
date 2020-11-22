@@ -1,0 +1,83 @@
+﻿@model ArabaSatisOtomasyon.Entities.Araba
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AYRINTILAR</h2>
+
+<div>
+    <h4>Araba</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yakit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yakit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VitesTuruId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VitesTuruId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MotorHacmi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotorHacmi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IlanTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IlanTarihi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Listeye Dön", "Index")
+</p>

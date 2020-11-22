@@ -1,36 +1,25 @@
+using ArabaSatisOtomasyon.Entities;
+using ArabaSatisOtomasyon.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
+
 namespace ArabaSatisOtomasyon.Data
 {
-    using ArabaSatisOtomasyon.Entities;
-    using ArabaSatisOtomasyon.Models;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using System;
-    using System.Data.Entity;
-    using System.Linq;
-
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        // Your context has been configured to use a 'ArabaSatisOtomasyon' connection string from your application's 
-        // configuration file (App.config or Web.config). By default, this connection string targets the 
-        // 'ArabaSatisOtomasyon.ArabaSatisOtomasyon' database on your LocalDb instance. 
-        // 
-        // If you wish to target a different database and/or database provider, modify the 'ArabaSatisOtomasyon' 
-        // connection string in the application configuration file.
+    {      
         public ApplicationDbContext()
             : base("name=DefaultConnection")
         {
         }
         public virtual DbSet<Araba> Araba { get; set; }
         public virtual DbSet<Ilan> Ilan { get; set; }
+        public virtual DbSet<YakitTurleri> YakitTurleri { get; set; }
+        public virtual DbSet<VitesTurleri> VitesTurleris { get; set; }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
-
-        // Add a DbSet for each entity type that you want to include in your model. For more information 
-        // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
-
-        // public virtual DbSet<MyEntity> MyEntities { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -43,11 +32,7 @@ namespace ArabaSatisOtomasyon.Data
             //    .HasForeignKey<int>(s => s.CurrentGradeId);
         }
 
+
     }
 
-    //public class MyEntity
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //}
 }

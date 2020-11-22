@@ -15,25 +15,25 @@ namespace ArabaSatisOtomasyon.Controllers
     {
         private ApplicationDbContext db;
         private ApplicationUserManager _userManager;
-        public KullaniciController()
-        {
+        List<ApplicationUser> kullanicilar = new List<ApplicationUser>();
 
+
+        public KullaniciController(ApplicationDbContext dbContext
+            //ApplicationUserManager userManager
+            )
+        {
+            db = dbContext;
+            //_userManager = userManager;
         }
-        //public KullaniciController(
-        //    ApplicationDbContext dbContext,
-        //    ApplicationUserManager userManager)
-        //{
-        //    db = dbContext;
-        //    _userManager = userManager;
-        //}
 
         // GET: Kullanici
+        [HttpGet]
         public ActionResult Index()
         {
-            var kullanicilar = new List<ApplicationUser>();
 
-            kullanicilar.Add(new ApplicationUser {  Adi = "Emre", Soyadi ="blabalbal"} );
-            kullanicilar.Add(new ApplicationUser { Adi = "veli", Soyadi = "zibbma" });
+            var kullanicilar = db.Users.ToList();
+
+            //var users = _userManager.Users;
 
             return View(kullanicilar);
         }
@@ -64,16 +64,15 @@ namespace ArabaSatisOtomasyon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserName,PhoneNumber,Yas,Adi,Soyadi,KullaniciKayitTarihi,Adres,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount")] ApplicationUser applicationUser)
+        public ActionResult Create(ApplicationUser applicationUser)
         {
             if (ModelState.IsValid)
             {
+                
                 //db.ApplicationUsers.Add(applicationUser);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                //db.SaveChanges();
             }
-
-            return View(applicationUser);
+            return RedirectToAction("Index");
         }
 
         // GET: Kullanici/Edit/5
@@ -81,9 +80,9 @@ namespace ArabaSatisOtomasyon.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("HataSayfasi");
             }
-            ApplicationUser applicationUser = new ApplicationUser();// db.ApplicationUsers.Find(id);
+            var applicationUser = kullanicilar.Find(a=>a.Id == id);// db.ApplicationUsers.Find(id);
             if (applicationUser == null)
             {
                 return HttpNotFound();
@@ -96,7 +95,8 @@ namespace ArabaSatisOtomasyon.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserName,PhoneNumber,Yas,Adi,Soyadi,KullaniciKayitTarihi,Adres,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount")] ApplicationUser applicationUser)
+        public ActionResult Edit([Bind(Include = "Id,UserName,PhoneNumber,Yas,Adi,Soyadi")]
+        ApplicationUser applicationUser)
         {
             if (ModelState.IsValid)
             {

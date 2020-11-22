@@ -1,44 +1,224 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>Accelerator Home Page</title>
+
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/css/flaticon.css" rel="stylesheet">
+    <link href="~/Content/css/slick-slider.css" rel="stylesheet">
+    <link href="~/Content/css/fancybox.css" rel="stylesheet">
+    <link href="~/Content/css/color.css" rel="stylesheet">
+    <link href="~/Content/css/datepicker.css" rel="stylesheet">
+    <link href="~/Content/css/responsive.css" rel="stylesheet">
+    <link href="build/mediaelementplayer.css" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kullanicilar", "Index", "Kullanici")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+<body>
+    <div class="automobile-main-wrapper">
+
+        <header id="automobile-header" class="automobile-header-one">
+            <div class="container">
+                <div class="row">
+                    <aside class="col-md-2"> <a href="index.html" class="automobile-logo"><img src="images/logo.png" alt=""></a> </aside>
+                    <aside class="col-md-10">
+
+                        <nav class="navbar navbar-default">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li>
+                                        <a href="#">Blogs</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="#">Blog Classic</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/Arabas/Index">Arabalar</a></li>
+                                                    <li><a href="blog-classic-wrs.html">Blog Classic WRS</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Blog Medium</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="blog-medium.html">Blog Medium WLS</a></li>
+                                                    <li><a href="blog-medium-wrs.html">Blog Medium WRS</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Blog Detail</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="blog-detail.html">Blog Detail WLS</a></li>
+                                                    <li><a href="blog-detail-wrs.html">Blog Detail WRS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="automobile-megamenu-li">
+                                        <a href="#">Pages</a>
+                                        <ul class="automobile-megamenu">
+                                            <li class="row">
+                                                <div class="col-md-2">
+                                                    <h4>Link 1</h4>
+                                                    <ul class="automobile-megalist">
+                                                        <li><a href="about-us.html">About Us</a></li>
+                                                        <li><a href="account-favorite-list.html">Account Favorite List</a></li>
+                                                        <li><a href="account-package.html">Account Package</a></li>
+                                                        <li><a href="account-payment.html">Account Payment</a></li>
+                                                        <li><a href="account-profile.html">Account Profile</a></li>
+                                                        <li><a href="account-vehicle.html">Account Vehicle</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <h4>Link 2</h4>
+                                                    <ul class="automobile-megalist">
+                                                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                                                        <li><a href="compare.html">Compare</a></li>
+                                                        <li><a href="services.html">Services</a></li>
+                                                        <li><a href="vehicle.html">Vehicle</a></li>
+                                                        <li><a href="search-result-wrs.html">Search Result WRS</a></li>
+                                                        <li><a href="search-result.html">Search Result</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <h4>Link 3</h4>
+                                                    <ul class="automobile-megalist">
+                                                        <li><a href="typography.html">Typography</a></li>
+                                                        <li><a href="faq.html">Our FAQ</a></li>
+                                                        <li><a href="priceplan.html">Price Plan</a></li>
+                                                        <li><a href="404.html">404 Error Page</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <a href="#" class="automobile-thumbnail">
+                                                        <img src="/Content/extra-images/megamenu-frame.jpg" alt="">
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Listing</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="#">Listing Dealer</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="listing-dealer.html">Listing Dealer WLS</a></li>
+                                                    <li><a href="listing-dealer-wrs.html">Listing Dealer WRS</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Listing Grid</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="listing-grid.html">Listing Grid WLS</a></li>
+                                                    <li><a href="listing-grid-wrs.html">Listing Grid WRS</a></li>
+                                                    <li><a href="listing-grid-wos.html">Listing Grid WOS</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Listing List</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="listing-list.html">Listing List WLS</a></li>
+                                                    <li><a href="listing-list-wrs.html">Listing List WRS</a></li>
+                                                    <li><a href="listing-list-wos.html">Listing List WOS</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Listing Detail</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="listing-detail.html">Listing Detail WLS</a></li>
+                                                    <li><a href="listing-detail-wrs.html">Listing Detail WRS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Our Shop</a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="#">Shop Grid</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="shop-grid.html">Shop Grid WLS</a></li>
+                                                    <li><a href="shop-grid-wrs.html">Shop Grid WRS</a></li>
+                                                    <li><a href="shop-grid-wos.html">Shop Grid WOS</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shop List</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="shop-list.html">Shop List WLS</a></li>
+                                                    <li><a href="shop-list-wrs.html">Shop List WRS</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shop Detail</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="shop-detail.html">Shop Detail WLS</a></li>
+                                                    <li><a href="shop-detail-wrs.html">Shop Detail WRS</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Contact Us</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="contact-us.html">Contact Us WRS</a></li>
+                                            <li><a href="contact-us-wls.html">Contact Us WLS</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+
+                        <div class="automobile-right-section">
+                            <ul class="automobile-user-section">
+                                <li><a href="#" data-toggle="modal" data-target="#accountmodal"><i class="automobile-color icon-avatar3"></i> Account</a></li>
+                                <li>
+                                    <a href="#" class="automobile-shoppingcart-btn"><i class="automobile-color icon-interface5"></i> Cart</a>
+                                    <div class="automobile-cartbox"> No products in the cart. </div>
+                                </li>
+                            </ul>
+                            <a href="vehicle.html" class="automobile-sell-btn automobile-bgcolor">Sell My Car</a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </header>
+
+        @RenderBody()
+
+        <div class="clearfix"></div>
+    </div>
 </body>
+
+
 </html>
+<script type="text/javascript" src="script/jquery.js"></script>
+<script src="../../../code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="~/Content/script/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Content/script/slick.slider.min.js"></script>
+<script type="text/javascript" src="~/Content/script/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="~/Content/script/fancybox.pack.js"></script>
+<script type="text/javascript" src="~/Content/script/isotope.min.js"></script>
+<script type="text/javascript" src="~/Content/script/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="~/Content/script/mediaelement-and-player.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="~/Content/script/functions.js"></script>

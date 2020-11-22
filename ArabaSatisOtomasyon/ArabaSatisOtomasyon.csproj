@@ -46,6 +46,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -169,6 +172,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\ArabasController.cs" />
     <Compile Include="Controllers\KullaniciController.cs" />
     <Compile Include="Data\ApplicationDbContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -176,6 +180,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Entities\Araba.cs" />
     <Compile Include="Entities\Ilan.cs" />
+    <Compile Include="Entities\VitesTurleri.cs" />
+    <Compile Include="Entities\YakitTurleri.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -215,10 +221,23 @@
     <Compile Include="Migrations\202009041759035_KullaniciIlanIliskisi.Designer.cs">
       <DependentUpon>202009041759035_KullaniciIlanIliskisi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010141742095_vitesturlerieklendi.cs" />
+    <Compile Include="Migrations\202010141742095_vitesturlerieklendi.Designer.cs">
+      <DependentUpon>202010141742095_vitesturlerieklendi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010141757117_senkron.cs" />
+    <Compile Include="Migrations\202010141757117_senkron.Designer.cs">
+      <DependentUpon>202010141757117_senkron.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011121656182_yakitturuekleme.cs" />
+    <Compile Include="Migrations\202011121656182_yakitturuekleme.Designer.cs">
+      <DependentUpon>202011121656182_yakitturuekleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="NinjectController\NinjectControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -227,6 +246,215 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\color.css" />
+    <Content Include="Content\css\datepicker.css" />
+    <Content Include="Content\css\fancybox.css" />
+    <Content Include="Content\css\fancybox_loading.html" />
+    <Content Include="Content\css\flaticon.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\slick-slider.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\extra-images\404-img.jpg" />
+    <Content Include="Content\extra-images\account-card-img1.jpg" />
+    <Content Include="Content\extra-images\account-card-img2.jpg" />
+    <Content Include="Content\extra-images\account-card-img3.jpg" />
+    <Content Include="Content\extra-images\account-card-img4.jpg" />
+    <Content Include="Content\extra-images\account-card-img5.jpg" />
+    <Content Include="Content\extra-images\account-favorites-list-img1.jpg" />
+    <Content Include="Content\extra-images\account-favorites-list-img2.jpg" />
+    <Content Include="Content\extra-images\account-favorites-list-img3.jpg" />
+    <Content Include="Content\extra-images\account-favorites-list-img4.jpg" />
+    <Content Include="Content\extra-images\account-favorites-list-img5.jpg" />
+    <Content Include="Content\extra-images\account-profile.jpg" />
+    <Content Include="Content\extra-images\admin-post-img.jpg" />
+    <Content Include="Content\extra-images\auto-expert-img1.jpg" />
+    <Content Include="Content\extra-images\auto-repair-img1.jpg" />
+    <Content Include="Content\extra-images\auto-repair-img2.jpg" />
+    <Content Include="Content\extra-images\auto-repair-img3.jpg" />
+    <Content Include="Content\extra-images\auto-service-img.jpg" />
+    <Content Include="Content\extra-images\auto-towing-img.jpg" />
+    <Content Include="Content\extra-images\background-layers.jpg" />
+    <Content Include="Content\extra-images\banner-1.jpg" />
+    <Content Include="Content\extra-images\banner-2.jpg" />
+    <Content Include="Content\extra-images\banner-3.jpg" />
+    <Content Include="Content\extra-images\blog-classic-tab-img1.jpg" />
+    <Content Include="Content\extra-images\blog-classic-tab-img2.jpg" />
+    <Content Include="Content\extra-images\blog-classic-tab-img3.jpg" />
+    <Content Include="Content\extra-images\blog-classic-tab-img4.jpg" />
+    <Content Include="Content\extra-images\blog-classic-tab-list-img1.jpg" />
+    <Content Include="Content\extra-images\blog-classic-tab-list-img2.jpg" />
+    <Content Include="Content\extra-images\blog-classic-tab-list-img3.jpg" />
+    <Content Include="Content\extra-images\blog-classic-tab-list-img4.jpg" />
+    <Content Include="Content\extra-images\blog-medium-img1.jpg" />
+    <Content Include="Content\extra-images\blog-medium-img2.jpg" />
+    <Content Include="Content\extra-images\blog-single-post-thumb.jpg" />
+    <Content Include="Content\extra-images\call-to-action-img1.jpg" />
+    <Content Include="Content\extra-images\call-to-action-img2.jpg" />
+    <Content Include="Content\extra-images\call-to-action-img3.jpg" />
+    <Content Include="Content\extra-images\car-deals-img1.jpg" />
+    <Content Include="Content\extra-images\car-deals-img2.jpg" />
+    <Content Include="Content\extra-images\car-deals-img3.jpg" />
+    <Content Include="Content\extra-images\car-deals-img4.jpg" />
+    <Content Include="Content\extra-images\car-deals-img5.jpg" />
+    <Content Include="Content\extra-images\car-list-img.png" />
+    <Content Include="Content\extra-images\car-review-img1.jpg" />
+    <Content Include="Content\extra-images\car-review-img2.jpg" />
+    <Content Include="Content\extra-images\car-review-img3.jpg" />
+    <Content Include="Content\extra-images\car-review-img4.jpg" />
+    <Content Include="Content\extra-images\car-review-img5.jpg" />
+    <Content Include="Content\extra-images\classic-blog-img1.jpg" />
+    <Content Include="Content\extra-images\classic-blog-img2.jpg" />
+    <Content Include="Content\extra-images\classic-blog-img3.jpg" />
+    <Content Include="Content\extra-images\classic-blog-img4.jpg" />
+    <Content Include="Content\extra-images\classic-blog-img5.jpg" />
+    <Content Include="Content\extra-images\classic-blog-img6.jpg" />
+    <Content Include="Content\extra-images\classic-blog-img7.jpg" />
+    <Content Include="Content\extra-images\classic-blog-img8.jpg" />
+    <Content Include="Content\extra-images\comment-img1.jpg" />
+    <Content Include="Content\extra-images\comment-img2.jpg" />
+    <Content Include="Content\extra-images\comment-img3.jpg" />
+    <Content Include="Content\extra-images\comming-soon-background.jpg" />
+    <Content Include="Content\extra-images\compare-1.jpg" />
+    <Content Include="Content\extra-images\compare-3.jpg" />
+    <Content Include="Content\extra-images\fancybox\blank.gif" />
+    <Content Include="Content\extra-images\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="Content\extra-images\fancybox\fancybox_overlay.png" />
+    <Content Include="Content\extra-images\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="Content\extra-images\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\extra-images\footer-bg.jpg" />
+    <Content Include="Content\extra-images\footer-slider-1.jpg" />
+    <Content Include="Content\extra-images\footer-slider-2.jpg" />
+    <Content Include="Content\extra-images\footer-slider-3.jpg" />
+    <Content Include="Content\extra-images\footer-slider-4.jpg" />
+    <Content Include="Content\extra-images\footer-slider-5.jpg" />
+    <Content Include="Content\extra-images\footer-slider-6.jpg" />
+    <Content Include="Content\extra-images\footer-slider-7.jpg" />
+    <Content Include="Content\extra-images\full-promo-box-img.jpg" />
+    <Content Include="Content\extra-images\listing-dealers-img1.jpg" />
+    <Content Include="Content\extra-images\listing-dealers-img2.jpg" />
+    <Content Include="Content\extra-images\listing-dealers-img3.jpg" />
+    <Content Include="Content\extra-images\listing-dealers-img4.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img1.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img10.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img11.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img12.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img13.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img14.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img15.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img2.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img3.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img4.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img5.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img6.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img7.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img8.jpg" />
+    <Content Include="Content\extra-images\listing-grid-img9.jpg" />
+    <Content Include="Content\extra-images\listing-list-img1.jpg" />
+    <Content Include="Content\extra-images\listing-list-img10.jpg" />
+    <Content Include="Content\extra-images\listing-list-img11.jpg" />
+    <Content Include="Content\extra-images\listing-list-img12.jpg" />
+    <Content Include="Content\extra-images\listing-list-img13.jpg" />
+    <Content Include="Content\extra-images\listing-list-img14.jpg" />
+    <Content Include="Content\extra-images\listing-list-img15.jpg" />
+    <Content Include="Content\extra-images\listing-list-img3.jpg" />
+    <Content Include="Content\extra-images\listing-list-img4.jpg" />
+    <Content Include="Content\extra-images\listing-list-img5.jpg" />
+    <Content Include="Content\extra-images\listing-list-img7.jpg" />
+    <Content Include="Content\extra-images\listing-list-img8.jpg" />
+    <Content Include="Content\extra-images\listing-list-img9.jpg" />
+    <Content Include="Content\extra-images\listing-slider-list-img1.jpg" />
+    <Content Include="Content\extra-images\listing-slider-list-img2.jpg" />
+    <Content Include="Content\extra-images\listing-slider-list-img3.jpg" />
+    <Content Include="Content\extra-images\listing-slider-list-img4.jpg" />
+    <Content Include="Content\extra-images\listing-slider-list-img5.jpg" />
+    <Content Include="Content\extra-images\listing-slider-thumb-img1.jpg" />
+    <Content Include="Content\extra-images\listing-slider-thumb-img2.jpg" />
+    <Content Include="Content\extra-images\listing-slider-thumb-img3.jpg" />
+    <Content Include="Content\extra-images\listing-slider-thumb-img4.jpg" />
+    <Content Include="Content\extra-images\listing-slider-thumb-img5.jpg" />
+    <Content Include="Content\extra-images\listing-view-two-img1.jpg" />
+    <Content Include="Content\extra-images\listing-view-two-img2.jpg" />
+    <Content Include="Content\extra-images\listing-view-two-img3.jpg" />
+    <Content Include="Content\extra-images\listing-view-two-img4.jpg" />
+    <Content Include="Content\extra-images\logo.png" />
+    <Content Include="Content\extra-images\megamenu-frame.jpg" />
+    <Content Include="Content\extra-images\my-vehicles-.jpg" />
+    <Content Include="Content\extra-images\my-vehicles-1.jpg" />
+    <Content Include="Content\extra-images\my-vehicles-2.jpg" />
+    <Content Include="Content\extra-images\my-vehicles-3.jpg" />
+    <Content Include="Content\extra-images\my-vehicles-4.jpg" />
+    <Content Include="Content\extra-images\next-prev-pic1.jpg" />
+    <Content Include="Content\extra-images\next-prev-pic2.jpg" />
+    <Content Include="Content\extra-images\no-result-found-1.jpg" />
+    <Content Include="Content\extra-images\no-result-found-2.jpg" />
+    <Content Include="Content\extra-images\no-result-found-3.jpg" />
+    <Content Include="Content\extra-images\peralex-image1.jpg" />
+    <Content Include="Content\extra-images\peralex-image2.jpg" />
+    <Content Include="Content\extra-images\peralex-thumb.png" />
+    <Content Include="Content\extra-images\popular-car-img1.jpg" />
+    <Content Include="Content\extra-images\popular-car-img2.jpg" />
+    <Content Include="Content\extra-images\popular-car-img3.jpg" />
+    <Content Include="Content\extra-images\related-blog-img1.jpg" />
+    <Content Include="Content\extra-images\related-blog-img2.jpg" />
+    <Content Include="Content\extra-images\related-blog-img3.jpg" />
+    <Content Include="Content\extra-images\related-blog-img4.jpg" />
+    <Content Include="Content\extra-images\related-blog-img5.jpg" />
+    <Content Include="Content\extra-images\related-blog-img6.jpg" />
+    <Content Include="Content\extra-images\related-blog-img7.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img1.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img10.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img11.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img12.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img13.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img14.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img15.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img2.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img3.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img4.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img5.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img6.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img7.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img8.jpg" />
+    <Content Include="Content\extra-images\shop-grid-img9.jpg" />
+    <Content Include="Content\extra-images\shop-layer-img1.jpg" />
+    <Content Include="Content\extra-images\shop-layer-img2.jpg" />
+    <Content Include="Content\extra-images\shop-layer-img3.jpg" />
+    <Content Include="Content\extra-images\shop-layer-img4.jpg" />
+    <Content Include="Content\extra-images\shop-thumb-img1.jpg" />
+    <Content Include="Content\extra-images\shop-thumb-img2.jpg" />
+    <Content Include="Content\extra-images\shop-thumb-img3.jpg" />
+    <Content Include="Content\extra-images\shop-thumb-img4.jpg" />
+    <Content Include="Content\extra-images\sub-header.jpg" />
+    <Content Include="Content\extra-images\team-classic-img1.jpg" />
+    <Content Include="Content\extra-images\team-classic-img2.jpg" />
+    <Content Include="Content\extra-images\team-classic-img3.jpg" />
+    <Content Include="Content\extra-images\team-classic-img4.jpg" />
+    <Content Include="Content\extra-images\testimonial-img1.jpg" />
+    <Content Include="Content\extra-images\testimonial-img2.jpg" />
+    <Content Include="Content\extra-images\trading-post-img1.jpg" />
+    <Content Include="Content\extra-images\trading-post-img2.jpg" />
+    <Content Include="Content\extra-images\trading-post-img3.jpg" />
+    <Content Include="Content\extra-images\typography-tab-image1.jpg" />
+    <Content Include="Content\extra-images\video-widget-img1.jpg" />
+    <Content Include="Content\extra-images\video-widget-img2.jpg" />
+    <Content Include="Content\extra-images\video-widget-img3.jpg" />
+    <Content Include="Content\extra-images\widget-facbook-img.jpg" />
+    <Content Include="Content\extra-images\widget-popular-prodcts-img1.jpg" />
+    <Content Include="Content\extra-images\widget-popular-prodcts-img2.jpg" />
+    <Content Include="Content\extra-images\widget-recent-listing-1.jpg" />
+    <Content Include="Content\extra-images\widget-recent-listing-2.jpg" />
+    <Content Include="Content\extra-images\widget-recent-listing-3.jpg" />
+    <Content Include="Content\script\bootstrap-datepicker.js" />
+    <Content Include="Content\script\bootstrap.min.js" />
+    <Content Include="Content\script\fancybox.pack.js" />
+    <Content Include="Content\script\functions.js" />
+    <Content Include="Content\script\isotope.min.js" />
+    <Content Include="Content\script\jquery.countdown.min.js" />
+    <Content Include="Content\script\jquery.js" />
+    <Content Include="Content\script\mediaelement-and-player.min.js" />
+    <Content Include="Content\script\slick.slider.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -283,9 +511,18 @@
     <Content Include="Views\Kullanici\Details.cshtml" />
     <Content Include="Views\Kullanici\Edit.cshtml" />
     <Content Include="Views\Kullanici\Index.cshtml" />
+    <Content Include="Views\Kullanici\HataSayfasi.cshtml" />
+    <Content Include="Views\Arabas\Create.cshtml" />
+    <Content Include="Views\Arabas\Delete.cshtml" />
+    <Content Include="Views\Arabas\Details.cshtml" />
+    <Content Include="Views\Arabas\Edit.cshtml" />
+    <Content Include="Views\Arabas\Index.cshtml" />
+    <Content Include="Views\Arabas\Tanim.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -327,6 +564,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009041759035_KullaniciIlanIliskisi.resx">
       <DependentUpon>202009041759035_KullaniciIlanIliskisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010141742095_vitesturlerieklendi.resx">
+      <DependentUpon>202010141742095_vitesturlerieklendi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010141757117_senkron.resx">
+      <DependentUpon>202010141757117_senkron.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011121656182_yakitturuekleme.resx">
+      <DependentUpon>202011121656182_yakitturuekleme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
