@@ -189,13 +189,23 @@
                         </nav>
 
                         <div class="automobile-right-section">
-                            <ul class="automobile-user-section">
-                                <li><a href="#" data-toggle="modal" data-target="#accountmodal"><i class="automobile-color icon-avatar3"></i> Account</a></li>
-                                <li>
-                                    <a href="#" class="automobile-shoppingcart-btn"><i class="automobile-color icon-interface5"></i> Cart</a>
-                                    <div class="automobile-cartbox"> No products in the cart. </div>
-                                </li>
-                            </ul>
+							<ul class="automobile-user-section">
+								@if (User.Identity.IsAuthenticated) 
+								{
+								<li>
+									<a href="#" data-toggle="modal" data-target="#accountmodal"><i class="automobile-color icon-avatar3"></i> Hesabım</a>
+								</li>
+								}else{
+								<li>
+									<a href="/Account/Login"><i class="automobile-color icon-avatar3"></i> Login</a>
+								</li>
+
+								}
+								<li>
+									<a href="#" class="automobile-shoppingcart-btn"><i class="automobile-color icon-interface5"></i> Cart</a>
+									<div class="automobile-cartbox"> No products in the cart. </div>
+								</li>
+							</ul>
                             <a href="vehicle.html" class="automobile-sell-btn automobile-bgcolor">Sell My Car</a>
                         </div>
                     </aside>
